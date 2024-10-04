@@ -1,0 +1,1 @@
+docker build -t el9-cvmfs-container .
