@@ -1,1 +1,1 @@
-docker run --platform linux/amd64 --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --rm -it -v $HOME/:/home/atreus  docker.io/library/el9-cvmfs-container bash
+docker run --platform linux/amd64 --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --rm -it -v $PWD/:/home/atreus  docker.io/library/el9-cvmfs-container bash
