@@ -15,3 +15,7 @@ To run the container run:
 ```
 
 This script should automatically mount your current working directory
+
+
+# Getting Geant4 visualisation working
+If not already there, copy `init_vis.mac` into your Geant4 app build directory
