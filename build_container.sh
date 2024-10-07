@@ -1,1 +1,1 @@
-docker build -t el9-cvmfs-container .
+docker build -t el9-cvmfs-container . --platform linux/amd64
