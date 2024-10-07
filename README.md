@@ -1,22 +1,8 @@
 # EL9 Docker Container
 
-Built for FASER/FASER2 studies with GEANT4
+Scripts for running an el9 container with `cvmfs` mounted for FASER/FASER2 studies with GEANT4
 
 To install docker see [documentation](https://docs.docker.com/get-started/get-docker/)
-
-## Displaying windows macOS (x11 forwarding)
-
-If you run the container and try and open up a GUI window, such as a `TBrowser` e.g:
-
-```bash
-$ root 
-root [0] new TBrowser
-Warning in <TBrowser::TBrowser>: The ROOT browser cannot run in batch mode
-```
-
-it probably won't work due to x11 forwarding not being setup (x11 is the protocol on unix machines which manages the creation of windows).
-
-To get x11 forwarding to work on you mac machine follow the instructions on this [gist](https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088).
 
 ## Running the container
 
@@ -43,6 +29,20 @@ source /cvmfs/sft.cern.ch/lcg/views/LCG_105/x86_64-el9-gcc11-opt/setup.sh
 ```
 
 *Note*: Setting up LCG releases and other software from cvmfs are likely to be slow. Running programs such as `root` for the first time are also likely to be slow.
+
+## Displaying windows on mac OS (x11 forwarding)
+
+On a mac, if you run the container and try and open up a GUI window, such as a `TBrowser` for example:
+
+```bash
+$ root 
+root [0] new TBrowser
+Warning in <TBrowser::TBrowser>: The ROOT browser cannot run in batch mode
+```
+
+it probably won't work due to x11 forwarding not being set up (x11 is the protocol on unix machines which manages the creation of windows).
+
+To get x11 forwarding to work on you mac machine follow the instructions on this [gist](https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088).
 
 ## Getting Geant4 visualisation working
 
