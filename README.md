@@ -2,7 +2,9 @@
 
 Scripts for running an el9 container with `cvmfs` mounted for FASER/FASER2 studies with GEANT4
 
-To install docker see [documentation](https://docs.docker.com/get-started/get-docker/)
+## Installing Docker
+
+To install docker see the getting started page in the docker [documentation](https://docs.docker.com/get-started/get-docker/)
 
 ## Running the container
 
@@ -43,6 +45,8 @@ Warning in <TBrowser::TBrowser>: The ROOT browser cannot run in batch mode
 it probably won't work due to x11 forwarding not being set up (x11 is the protocol on unix machines which manages the creation of windows).
 
 To get x11 forwarding to work on you mac machine follow the instructions on this [gist](https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088).
+
+To follow this guide you'll need to install the `homebrew` package manager. For instructions on installing `homebrew` if you do not have it already can be found in this [guide](https://mac.install.guide/homebrew/3).
 
 ## Getting Geant4 visualisation working
 
