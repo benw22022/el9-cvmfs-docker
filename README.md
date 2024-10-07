@@ -44,7 +44,7 @@ Warning in <TBrowser::TBrowser>: The ROOT browser cannot run in batch mode
 
 it probably won't work due to x11 forwarding not being set up (x11 is the protocol on unix machines which manages the creation of windows).
 
-To get x11 forwarding to work on you mac machine follow the instructions on this [gist](https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088).
+To get x11 forwarding to work on you mac machine follow the instructions on this [gist](https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088). *Note*: the final step in this guide involves pulling a container and running `xclock` however, this container is depreciated so no longer works. To verify x11 forwarding is working run `./run_container.sh` and try and open a firefox window (simply type `firefox` in the terminal).
 
 To follow this guide you'll need to install the `homebrew` package manager. For instructions on installing `homebrew` if you do not have it already can be found in this [guide](https://mac.install.guide/homebrew/3).
 

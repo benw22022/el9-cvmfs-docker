@@ -19,6 +19,8 @@ RUN yum install -y epel-release gcc-gfortran pcre-devel \
 
 RUN yum install -y qt5-qtbase qt5-qtbase-gui qt5-qtx11extras libxcb libxcb-devel
 
+RUN yum install -y firefox
+
 RUN yum install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm \
  && yum install -y cvmfs
 
