@@ -72,3 +72,9 @@ The image on docker hub should be sufficient but should you wish to build the co
 ```
 
 *Note*: You'll need to update the container name in the `run_container.sh` script
+
+## Compiling older FASER G4 models
+
+Sometimes `make` will complain that `fatal error: g4root.hh: No such file or directory`. This is because this file was removed in newer releases of Geant4 (>= 11.0). To fix, replace instances of `#include "g4root.hh"` with `#include "G4AnalysisManager.hh"`.
+
+There was also a change to `G4String`, now instead of something like `thePrePVname(0,4) == "calo"` instead do `thePrePVname.substr(0, 4) == "calo"`.
