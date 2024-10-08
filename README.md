@@ -22,7 +22,7 @@ This script should automatically mount your current working directory. Alternati
 ./run_container.sh /path/to/directory/
 ```
 
-The `./run_container.sh` script will copy over the `.bashrc` and `.inputrc` files to your mounted directory. When you start a terminal in the container it will automatically source the `.bashrc` and run the commands to mount the `cvmfs` repositories. The `.inputrc` is just a nice to have command history tool. If you try and mount your home directory the `.bashrc` and `.inputrc` files will not be copied over to avoid accidentally overwriting any existing files. If this happens you'll need to run the commands to mount the `cvmfs` repositories yourself.
+The `./run_container.sh` script will copy over the `.bashrc` and `.inputrc` files to your mounted directory. When you start a terminal in the container it will automatically source the `.bashrc` and run the commands to mount the `cvmfs` repositories. The `.inputrc` is just a nice to have command history tool; start tying a command and press the `up`/`down` arrows to scroll through previously used commands. If you try and mount your home directory the `.bashrc` and `.inputrc` files will not be copied over to avoid accidentally overwriting any existing files. If this happens you'll need to run the commands to mount the `cvmfs` repositories yourself.
 <!-- The commands in the `.bashrc` could also be built into the docker container, but it was decided to put them in the `.bashrc` instead to allow for future customisation without the need to rebuild the container. 
 -> Actually it appears that you cannot start the auto mounter when building the container
 -->
