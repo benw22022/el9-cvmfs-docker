@@ -57,6 +57,19 @@ If not already there, copy `init_vis.mac` into your geant4 app build directory
 
 You can then start your geant4 app interactively by doing `./<myGeant4App>`.
 
+*Special note for macOS*: You need to edit the `vis.mac` file and change the viewer backend from `OGL` to `TOOLSSG_QT_ZB`.
+i.e. replace
+
+```bash
+/vis/open OGL 600x600-0+0
+```
+
+with:
+
+```bash
+/vis/open/ TOOLSSG_QT_ZB
+```
+
 ## Some notes about running code in docker containers
 
 - To exit a container type `exit` or `ctrl + d`
