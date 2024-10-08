@@ -8,7 +8,7 @@ LABEL org.opencontainers.image.source = "https://zhangzi.web.cern.ch"
 # LABEL org.opencontainers.image.base.name="gitlab-registry.cern.ch/sft/docker/alma9-core:latest"
 
 RUN yum update -y && yum groupinstall "Development Tools" -y \
- && yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel freetype-devel libXt-devel libX11-devel expat-devel motif\
+ && yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel freetype-devel libXt-devel libX11-devel expat-devel motif openmotif-devel mlocate\
     readline-devel tk-devel libpcap-devel xz-devel libXpm-devel \
     libXext-devel wget which ghostscript
 
@@ -23,6 +23,8 @@ RUN yum install -y firefox
 
 RUN yum install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm \
  && yum install -y cvmfs
+
+RUN sudo updatedb
 
 COPY my_cvmfs_repository.conf /etc/cvmfs/default.local
 
