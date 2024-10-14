@@ -2,6 +2,8 @@
 
 Scripts for running an el9 container with `cvmfs` mounted for FASER/FASER2 studies with GEANT4
 
+Special thanks to @tzuhanchang who did a lot of the hard work by giving me the DockerFile to build a container with `cvmfs` mounted  
+
 ## Installing Docker
 
 To install docker see the getting started page in the docker [documentation](https://docs.docker.com/get-started/get-docker/)
