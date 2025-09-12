@@ -32,7 +32,7 @@ The `./run_container.sh` script will copy over the `.bashrc` and `.inputrc` file
 Once inside the container you can setup an LCG release with:
 
 ```bash
-source /cvmfs/sft.cern.ch/lcg/views/LCG_105/x86_64-el9-gcc11-opt/setup.sh
+source /cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el9-gcc11-opt/setup.sh
 ```
 
 *Note*: Setting up LCG releases and other software from cvmfs are likely to be slow. Running programs such as `root` for the first time are also likely to be slow.
