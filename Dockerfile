@@ -7,24 +7,26 @@ LABEL org.opencontainers.image.authors = "Zihan Zhang, Ben Wilson"
 LABEL org.opencontainers.image.source = "https://zhangzi.web.cern.ch"
 # LABEL org.opencontainers.image.base.name="gitlab-registry.cern.ch/sft/docker/alma9-core:latest"
 
-RUN yum update -y && yum groupinstall "Development Tools" -y \
- && yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel freetype-devel libXt-devel libX11-devel expat-devel motif openmotif-devel mlocate\
+RUN yum install -y epel-release \
+ && yum install -y dnf-plugins-core \
+ && yum config-manager --set-enabled crb \
+ && yum update -y \
+ && yum groupinstall "Development Tools" -y \
+ && yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel freetype-devel libXt-devel libX11-devel expat-devel motif openmotif-devel mlocate \
     readline-devel tk-devel libpcap-devel xz-devel libXpm-devel \
     libXext-devel wget which ghostscript
 
-RUN yum install -y epel-release gcc-gfortran pcre-devel \
-    mesa-libGL-devel mesa-libGLU-devel fftw-devel libuuid-devel \
-    openldap-devel libxml2-devel readline-devel \
-    openssl java sudo
-
-RUN yum install -y qt5-qtbase qt5-qtbase-gui qt5-qtx11extras libxcb libxcb-devel
+RUN yum install -y qt5-qtbase qt5-qtbase-gui qt5-qtx11extras libxcb libxcb-devel sudo \
+    gcc-gfortran pcre-devel mesa-libGL-devel mesa-libGLU-devel fftw-devel libuuid-devel \
+    openldap-devel libxml2-devel java pkgconfig lz4-devel \
+    libzstd-devel xxhash-devel
 
 RUN yum install -y firefox
 
 RUN yum install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm \
  && yum install -y cvmfs
 
-RUN sudo updatedb
+RUN updatedb
 
 COPY my_cvmfs_repository.conf /etc/cvmfs/default.local
 
@@ -36,6 +38,7 @@ RUN mkdir -p /cvmfs/atlas.cern.ch \
  && mkdir -p /cvmfs/sft.cern.ch \
  && mkdir -p /cvmfs/unpacked.cern.ch \
  && mkdir -p /cvmfs/geant4.cern.ch \
+ && mkdir -p /cvmfs/faser.cern.ch \
  && cvmfs_config setup
 
 RUN sed -i 's%#+dir:/etc/auto.master.d%+dir:/etc/auto.master.d%' /etc/auto.master
@@ -77,7 +80,8 @@ RUN echo "sudo mount -t cvmfs atlas.cern.ch /cvmfs/atlas.cern.ch" | tee -a /home
  && echo "sudo mount -t cvmfs sft-nightlies.cern.ch /cvmfs/sft-nightlies.cern.ch" | tee -a /home/atreus/.bashrc \
  && echo "sudo mount -t cvmfs sft.cern.ch /cvmfs/sft.cern.ch" | tee -a /home/atreus/.bashrc \
  && echo "sudo mount -t cvmfs unpacked.cern.ch /cvmfs/unpacked.cern.ch" | tee -a /home/atreus/.bashrc \
- && echo "sudo mount -t cvmfs geant4.cern.ch /cvmfs/geant4.cern.ch" | tee -a /home/atreus/.bashrc
+ && echo "sudo mount -t cvmfs geant4.cern.ch /cvmfs/geant4.cern.ch" | tee -a /home/atreus/.bashrc \
+ && echo "sudo mount -t cvmfs faser.cern.ch /cvmfs/faser.cern.ch" | tee -a /home/atreus/.bashrc
 
 RUN echo "export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase" | tee -a /home/atreus/.bashrc \
  && echo "alias setupATLAS='source \${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'" | tee -a /home/atreus/.bashrc

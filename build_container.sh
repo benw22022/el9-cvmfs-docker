@@ -1,1 +1,1 @@
-docker build -t el9-cvmfs-container . --platform linux/amd64
+docker build -t el9-cvmfs-container . --platform linux/amd64 --progress=plain --no-cache 2>&1 | tee build.log

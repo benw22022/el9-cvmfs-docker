@@ -9,6 +9,7 @@ sudo mount -t cvmfs sft-nightlies.cern.ch /cvmfs/sft-nightlies.cern.ch
 sudo mount -t cvmfs sft.cern.ch /cvmfs/sft.cern.ch
 sudo mount -t cvmfs unpacked.cern.ch /cvmfs/unpacked.cern.ch
 sudo mount -t cvmfs geant4.cern.ch /cvmfs/geant4.cern.ch
+sudo mount -t cvmfs faser.cern.ch /cvmfs/faser.cern.ch
 export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
 

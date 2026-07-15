@@ -32,8 +32,8 @@ fi
 # Run container - diffent commands for linux/macOS so that x11 forwarding works
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         # Linux
-        docker run --platform linux/amd64 --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --rm -it -v $MOUNTDIR/:/home/atreus  benw22022/faser:el9-cvmfs bash
+        docker run --platform linux/amd64 --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --rm -it -v $MOUNTDIR/:/home/atreus  benw22022/faser:el9-cvmfs-v2 bash
 elif [[ "$OSTYPE" == "darwin"* ]]; then
         # Mac OSX
-        docker run --platform linux/amd64 --privileged -e DISPLAY=docker.for.mac.host.internal:0 --rm -it -v $MOUNTDIR/:/home/atreus  benw22022/faser:el9-cvmfs bash
+        docker run --platform linux/amd64 --privileged -e DISPLAY=docker.for.mac.host.internal:0 --rm -it -v $MOUNTDIR/:/home/atreus  benw22022/faser:el9-cvmfs-v2 bash
 fi
