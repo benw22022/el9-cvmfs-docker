@@ -35,5 +35,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         docker run --platform linux/amd64 --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --rm -it -v $MOUNTDIR/:/home/atreus  benw22022/faser:el9-cvmfs-v2 bash
 elif [[ "$OSTYPE" == "darwin"* ]]; then
         # Mac OSX
-        docker run --platform linux/amd64 --privileged -e DISPLAY=docker.for.mac.host.internal:0 --rm -it -v $MOUNTDIR/:/home/atreus  benw22022/faser:el9-cvmfs-v2 bash
+        xhost + 127.0.0.1
+        docker run --platform linux/amd64 --privileged -e DISPLAY=host.docker.internal:0 --rm -it -v $MOUNTDIR/:/home/atreus  benw22022/faser:el9-cvmfs-v2 bash
 fi
